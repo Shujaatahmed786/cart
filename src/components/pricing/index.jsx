@@ -1,15 +1,7 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import { Link } from "react-router-dom";
 import Plans from "../data/plans";
 
 const Pricing = () => {
-  const router = useRouter();
-
-  const handleAddToCart = (planId) => {
-    router.push(`/cart?plan=${planId}`);
-  };
-
   return (
     <div>
       <section className="text-gray-600 body-font overflow-hidden">
@@ -37,7 +29,7 @@ const Pricing = () => {
                     {plan.name}
                   </h2>
                   <h1 className="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">
-                    ${plan.price}{" "}
+                    {plan.price}{" "}
                     <span className="text-lg font-normal text-gray-500">
                       {plan.duration || ""}
                     </span>
@@ -63,9 +55,9 @@ const Pricing = () => {
                       {feature}
                     </p>
                   ))}
-                  <button
-                    onClick={() => handleAddToCart(plan.id)}
-                    className={`flex items-center mt-auto text-white ${plan.bgColor} border-0 py-2 px-4 w-full focus:outline-none hover:opacity-80 rounded`}
+                  <Link
+                    to={`/cart?plan=${plan.id}`}
+                    className={`flex items-center mt-auto text-white ${plan.bgColor} border-0 py-2 px-4 w-full focus:outline-none hover:opacity-80 rounded text-center justify-center`}
                   >
                     Add to Cart
                     <svg
@@ -79,7 +71,7 @@ const Pricing = () => {
                     >
                       <path d="M5 12h14M12 5l7 7-7 7"></path>
                     </svg>
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
