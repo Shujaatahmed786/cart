@@ -2,7 +2,7 @@ import links from "../data/links";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-center gap-4 bg-[#3c8bdb] text-lg px-5 py-3">
+    <div className="flex justify-center items-center gap-4 bg-[#3c8bdb] text-lg px-5 py-3">
       {links.map((item, id) => (
         <div key={id} className="text-white font-bold cursor-pointer">
           <a
@@ -15,7 +15,11 @@ const Navbar = () => {
         </div>
       ))}
       <div>
-        <img src="/assets/cart.svg" className="w-12 h-12" alt="Cart" />
+        <img
+          src="/assets/shopping-cart.svg"
+          className="w-12 h-12 cursor-pointer"
+          alt="Cart"
+        />
       </div>
     </div>
   );
